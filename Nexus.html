@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ignite AI - NexusIQ</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<style>
+.text-navy {
+  color: #1A4157;
+}
+
+.text-dark-blue {
+  color: #152D6B;
+}
+
+.text-dark-blue-Q {
+  color: #364C85;
+}
+
+.text-dark-blue-D {
+  color: #324474;
+}
+
+.table-bordered-custom {
+  border: 4px solid #D9D9D9;
+}
+
+.table-bordered-custom th,
+.table-bordered-custom td {
+  border: 4px solid #D9D9D9;
+  color: #1A4157;
+}
+
+.bg-custom-content {
+  background-color: #D9D9D9;
+  color: #1A4157;
+}
+
+.custom-header th {
+  background-color: #ABC3FF;
+  color: #1A4157;
+}
+
+.table-header th {
+  background-color: #D9D9D9;
+  color: #152D6B;
+}
+
+.table-content td {
+  background-color: #D9D9D9;
+  color: #1A4157;
+}
+
+.table-bordered-white th,
+.table-bordered-white td {
+  border: 5px solid white !important;
+}
+
+
+.bg-custom-alt {
+  background-color: #EDEBEB;
+}
+
+#collapseOne, #collapseTwo, #collapseThree {
+    font-family: inter;
+}
+.accordion-button {
+  background-color: #001358 !important; 
+  color: white !important;
+}
+
+.accordion-button:not(.collapsed)::after {
+  filter: none;
+}
+
+.accordion-button::after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='white' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+}
+
+.cta-box {
+    background: linear-gradient(to right, #0072ff, #00c6ff);
+    padding: 4rem 3rem; /* reduced padding for smaller screens */
+    border-radius: 0.25rem;
+    background-image: url('./ffd7272dfb90bcce6d8209839e7d49679594d07f.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    flex-wrap: wrap; /* allow wrapping on smaller screens */
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    font-family: 'Segoe UI', sans-serif;
+    position: relative;
+    transform: translateY(50%);
+    z-index: 3;
+}
+
+.cta-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0;
+    flex: 1 1 300px; /* allow flexibility and minimum width */
+}
+
+.cta-phone {
+    font-size: 1.4rem;
+    font-weight: 600;
+    flex: 0 1 auto;
+    margin-left: 1rem;
+}
+
+/* Responsive tweaks */
+@media (max-width: 992px) { /* tablets and below */
+    .cta-box {
+        padding: 3rem 2rem;
+        transform: translateY(50%);
+    }
+    .cta-title {
+        font-size: 1.3rem;
+        text-align: center;
+    }
+    .cta-phone {
+        font-size: 1.2rem;
+        margin-left: 0;
+        margin-top: 1rem;
+        width: 100%;
+        text-align: center;
+    }
+    .table-bordered-custom th,
+    .table-bordered-custom td {
+      font-size: 0.9rem;
+      padding: 0.75rem;
+    }
+}
+
+@media (max-width: 576px) { /* mobile */
+    .cta-box {
+        padding: 1rem 1rem;
+        flex-direction: column;
+        transform: translateY(30%);
+    }
+    .cta-title {
+        padding-top: 20px;
+        font-size: 2rem;
+        text-align: center;
+        width: 100%;
+    }
+    .cta-phone {
+        font-size: 1.6rem;
+        text-align: center;
+        margin-bottom: 30px;
+        margin-top: 0.3rem;
+        width: 100%;
+        margin-left: 0;
+    }
+    .table-bordered-custom th,
+    .table-bordered-custom td {
+      font-size: 0.85rem;
+      padding: 0.5rem;
+    }
+}
+
+
+/* Footer Section */
+.footer-section {
+    position: relative;
+    font-size: medium;
+    font-family: inter;
+    background-image: url('./footer-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    padding-top: 190px; /* Increased to accommodate CTA overlap */
+    z-index: 1;
+}
+
+
+</style>
+<body style=" margin: 0 auto; background-color: white;">
+
+  <!-- Top NexusQ Logo -->
+ <div class="text-start p-3 p-md-4 ms-2 ms-md-4 mt-2">
+  <img src="./1a94f20bcf44f3d9a115ea19b13605fc7c50f175.png" 
+       alt="NexusQ Logo" 
+       class="img-fluid" 
+       style="max-height: 40px;">
+</div>
+  <br/>
+
+  <!-- Main Container -->
+  <div class="container my-4">
+  <div class="row g-0 align-items-stretch">
+    
+    <!-- Left: Background Image Section -->
+    <div class="col-12 col-lg-8 d-flex align-items-center justify-content-center text-white text-center p-4" 
+         style="background-image: url('./e82561a8a129d936b06c11f6e124dae84f9d26b3.png'); background-size: cover; background-position: center; border-radius: 0;">
+      <div>
+        <!-- Logo -->
+        <img src="./4af12c32eb6b7c6ea78638de28d727f69f849ab8.png" alt="Ignite AI Logo" class="mb-3" style="height: 150px;">
+
+        <!-- Heading -->
+        <h3 class="fw-bold" style="font-size: 1.8rem; font-family: 'Manrope', sans-serif; line-height: 1.4;">
+          Get Interview-Ready for AI Roles in<br>78 Hours of Guided Practice
+        </h3>
+
+        <!-- Button -->
+        <a href="#" class="btn mt-3 px-4 py-2" style="background-color: #EA3131; color: white; font-weight: 800; font-size: 12px; border-radius: 30px;">
+          DOWNLOAD BROCHURE
+        </a>
+
+        <!-- Date -->
+        <p class="mt-3 mb-0" style="font-size: 14px;">
+          New batch starts on <strong>July 15, 2025</strong>
+        </p>
+      </div>
+    </div>
+
+    <!-- Right: Form Section -->
+    <div class="col-12 col-lg-4 bg-primary text-white p-4" style="background-color: #152d6b !important;">
+      <div class="bg-secondary p-4 rounded d-flex flex-column align-items-center text-center" 
+           style="background-color: #364C85 !important; font-family: 'Inter', sans-serif;">
+        <h5 class="fw-medium mb-2" style="font-size: 18px;">Have Questions?</h5>
+        <p class="fw-medium mb-1" style="font-size: 16px;">Call&nbsp;&nbsp;+91 89775 05733</p>
+        <p class="fw-medium" style="font-size: 16px;">Or, Request a call-back?</p>
+
+        <p class="fw-medium mt-2 mb-1" style="font-size: 12px;">Just fill in your details.</p>
+        <p class="fw-medium mb-3" style="font-size: 12px;">We shall contact you with all the information.</p>
+
+        <!-- Form -->
+        <form class="w-100" style="max-width: 340px;">
+          <div class="mb-2">
+            <input type="text" class="form-control" placeholder="Full Name" required style="border-radius: 6px; font-size: 14px; border: 2px solid #BCBABA;">
+          </div>
+          <div class="mb-2">
+            <input type="tel" class="form-control" placeholder="Phone No" required style="border-radius: 6px; font-size: 14px; border: 2px solid #BCBABA;">
+          </div>
+          <div class="mb-2">
+            <input type="email" class="form-control" placeholder="Email ID" required style="border-radius: 6px; font-size: 14px; border: 2px solid #BCBABA;">
+          </div>
+
+          <!-- Submit Button -->
+          <button type="submit" class="btn w-100 mt-2" style="background-color: #62C86C; color: white; font-weight: 600; font-size: 14px; border-radius: 6px; border: 2px solid white;">
+            REQUEST A CALL-BACK
+          </button>
+
+          <!-- Privacy Notice -->
+          <div class="text-end mt-2">
+            <small style="font-size: 11px; color: #99CDDF;">We respect your privacy</small>
+          </div>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<div class="container mt-5">
+  <div class="accordion d-flex flex-column gap-2" id="programAccordion">
+    
+    <!-- Accordion Item 1 -->
+    <div class="accordion-item rounded-3">
+        <h2 class="accordion-header" id="headingOne">
+            <button class="border-0 accordion-button custom-accordion collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+            Program Details
+            </button>
+        </h2>
+        <div id="collapseOne" class="border-0 collapse border-0" data-bs-parent="#programAccordion" aria-labelledby="headingOne">
+            <div class="accordion-body">
+            <p class="text-navy">
+                <strong>NexusIQ’s IgniteAI</strong> is a hands-on, industry-aligned program designed to propel your AI career. With a <strong>carefully curated curriculum, real-time enterprise scenarios, mentor-graded labs and capstone, and recruiter-style mock interviews</strong>, you’ll master the practical tech skills that the industry demands – so you can step into your first AI role with confidence.
+            </p>
+
+            <p class="text-navy"><strong>Here is what IgniteAI’s 78-hour expert-led training program covers:</strong></p>
+            <ul class="text-navy">
+                <li><strong>78 Hours of Mentor-driven Training:</strong> Expert-led sessions designed to take you from novice to interview-ready.</li>
+                <li><strong>Theory to Action:</strong> Each session covers fundamental concepts followed by hands-on coding and lab sessions.</li>
+                <li><strong>Real Project Experience:</strong> Work with real-world datasets and build projects that demonstrate your skills to employers.</li>
+                <li><strong>Future-proof Skills:</strong> Build end-to-end GenAI industry projects and master concepts related to LLMs, RAGs, and AI Agents to stand out during your interviews.</li>
+                <li><strong>Code with Confidence:</strong> Learn to use AI coding assistants like GitHub Copilot to write better code faster and more efficiently.</li>
+                <li><strong>Develop and Deploy on Cloud:</strong> Build and deploy your AI models using cloud-based AI/ML platforms like AWS, Azure, and Google Cloud.</li>
+                <li><strong>Build Your AI Project Portfolio:</strong> Apply your learnings through hands-on projects and complete a final capstone to share with employers as proof of your skills.</li>
+                <li><strong>Be Confident and Interview-ready:</strong> Get personalised guidance from world-class mentors to improve your technical and communication skills.</li>
+            </ul>
+
+            <p class="text-dark-blue"><strong>This Program is For:</strong></p>
+            <ul class="text-navy">
+                <li><strong>Engineering students</strong> who are preparing for campus placements</li>
+                <li><strong>Fresh graduates</strong> who are looking for AI/ML roles</li>
+                <li><strong>IT professionals with 1–2 years of experience</strong> who are looking to transition to AI roles</li>
+            </ul>
+            </div>
+
+            <div class="container my-5">
+            <h3 class="text-center fw-bold text-dark-blue">PROGRAM OVERVIEW</h3>
+            <p class="text-center fw-bold text-navy">
+                IgniteAI’s curriculum focuses on in-demand technologies that are prioritised by hiring managers at leading companies like TCS, ServiceNow, Salesforce, E&Y, Deloitte, Amazon, and more. Throughout the program, you will master:
+            </p>
+
+            <div class="row g-3">
+                <div class="col-md-12">
+                <div class="card bg-light border-0 text-navy">
+                    <div class="card-body">
+                    <h5 class="card-title fw-bold">Coding Without Fear</h5>
+                    <p class="card-text">Copilot for code generation, SDLC, Project lifecycle, CI/CD, code quality checks</p>
+                    </div>
+                </div>
+                </div>
+                <!-- Repeat this block for each item -->
+                <div class="col-md-12">
+                <div class="card bg-light border-0 text-navy">
+                    <div class="card-body">
+                    <h5 class="card-title fw-bold">Python for AI</h5>
+                    <p class="card-text">NumPy, Pandas, Scikit-learn, PyTorch, Huggingface, LangChain, LangGraph, and more</p>
+                    </div>
+                </div>
+                </div>
+
+                <div class="col-md-12">
+                <div class="card bg-light border-0 text-navy">
+                    <div class="card-body">
+                    <h5 class="card-title fw-bold">Data Processing & Visualisation</h5>
+                    <p class="card-text">SQL, Power BI, data preprocessing techniques, feature engineering</p>
+                    </div>
+                </div>
+                </div>
+
+                <div class="col-md-12">
+                <div class="card bg-light border-0 text-navy">
+                    <div class="card-body">
+                    <h5 class="card-title fw-bold">Cloud AI/ML Services</h5>
+                    <p class="card-text">Azure ML, AWS SageMaker, Google AI Platform, deployment pipelines</p>
+                    </div>
+                </div>
+                </div>
+
+                <div class="col-md-12">
+                <div class="card bg-light border-0 text-navy">
+                    <div class="card-body">
+                    <h5 class="card-title fw-bold">Model Development & Deployment</h5>
+                    <p class="card-text">Flask, FastAPI, Docker, Streamlit, monitoring tools</p>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            <div class="bg-light p-4 mt-5">
+                <h3 class="text-center fw-bold text-dark-blue">WORLD-CLASS FACULTY</h3>
+                <div class="row text-center mt-4">
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 bg-light">
+                    <img src="./1b39eda5c5e95d2bb684d65022074c9448ca68f8.jpg" class="card-img-top" alt="Dr. Kishore Reddy Konda">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold text-dark-blue">Dr. Kishore Reddy Konda</h5>
+                        <p class="card-text text-dark-blue">Ph.D. from Oklahoma State University, USA</p>
+                    </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 bg-light">
+                    <img src="fb04ce09b01557bb777e0944d27a8f416cec2205.jpg" class="card-img-top" alt="Dr. L. Srinivasa Varadharajan">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold text-dark-blue">Dr. L. Srinivasa Varadharajan</h5>
+                        <p class="card-text text-dark-blue">Ph.D. from University of Missouri-Saint Louis, USA</p>
+                    </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 bg-light">
+                    <img src="fccf5ebb8380840ac1acee511148b6636f4ba94f.jpg" class="card-img-top" alt="Dr. Parag Mantri">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold text-dark-blue">Dr. Parag Mantri</h5>
+                        <p class="card-text text-dark-blue">Ph.D. from Indian Institute of Science, India</p>
+                    </div>
+                    </div>
+                </div>
+                </div>
+
+                <div class="text-center mt-4">
+                <button class="btn btn-primary px-4">View All</button>
+                </div>
+            </div>
+            </div>
+
+            <div class="container my-5">
+            <h3 class="text-center fw-bold text-dark-blue">Why IgniteAI Stands Out - and Sets You Up to Win</h3>
+            <div class="table-responsive pt-4">
+              <table class="table table-bordered-custom w-100 align-middle text-start">
+                <thead class="custom-header text-center">
+                  <tr>
+                    <th style="width: 50%;">What We Offer</th>
+                    <th style="width: 50%;">Why It Matters to You</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <strong>PhD Faculty Who Build - Not Just Teach</strong><br>
+                      Every mentor is both a practicing consultant and a doctorate-level researcher, so the "examples" you see on Monday may be shipping to production on Friday.
+                    </td>
+                    <td>
+                      You learn from live case studies, not recycled slide decks – your skills match what companies actually need right now.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <strong>Curriculum Reverse-Engineered from Real-world Industry Demands</strong><br>
+                      We analyze live project briefs and tech roadmaps from top AI teams, then shape every lesson to close those exact skill gaps – so what you practice in class is what you'll deploy at work.
+                    </td>
+                    <td>
+                      You are equipped with the exact, in-demand skills companies need right now, so you become the obvious hire and can add value from day one.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <strong>Hands-On, All the Time</strong><br>
+                      70% of every session is live coding and problem-solving – no passive lectures.
+                    </td>
+                    <td>
+                      You graduate with muscle memory, a GitHub repo full of projects, and the confidence to tackle new challenges from day one.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <strong>Enterprise-Grade Cloud Lab</strong><br>
+                      We spin up the same GPU-powered environment Fortune 500 AI teams rely on.
+                    </td>
+                    <td>
+                      Forget “works on my laptop.” You’ll deploy, test, and optimize models in a real production stack - experience most bootcamps don’t touch.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <strong>Full Tool Stack Included</strong><br>
+                      AutoML platforms, MLOps dashboards, data-labeling suites, and more - licensed and ready to use.
+                    </td>
+                    <td>
+                      You save thousands on software subscriptions and learn best-in-class workflows employers already trust.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <strong>Industry Validation</strong><br>
+                      Every syllabus and capstone is vetted by senior data scientists at top tech companies.
+                    </td>
+                    <td>
+                      Your portfolio carries instant credibility; recruiters recognize the standards behind every project you showcase.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+                <p class="text-muted text-navy mb-2">
+                    IgniteAI isn’t another “watch-and-quiz” course. It’s a production-grade apprenticeship that compresses years of on-the-job learning into a single, guided experience – so you walk into interviews already thinking (and building) like an AI Expert.
+                </p>
+            </div>
+
+            <div class="container my-5">
+            <!-- Title -->
+            <h3 class="text-center fw-bold mb-4 text-dark-blue">
+              Become the Go-to AI Expert in Your Next Company
+            </h3>
+
+            <!-- Paragraphs -->
+            <div class="mb-4">
+              <p class="text-navy">
+                You will complete coding challenges and assessments based on real-world AI business use cases and case studies instead of generic questions. This will help you understand how to create AI architecture as well as develop a robust solution to any problem you are given.
+              </p>
+              <p class="text-navy">
+                As part of your capstone project, you will build and deploy an end-to-end solution on the cloud with continuous feedback and support from our world-class mentors. You can use this project to showcase your skills and expertise in taking an AI solution from concept through cloud deployment. This will help you get a competitive advantage in technical interviews, land high-impact AI roles, and become the go-to AI expert on your team in your next company!
+              </p>
+            </div>
+
+            <!-- Table Section -->
+            <div class="table-responsive mb-4">
+              <table class="table table-bordered-white text-center align-middle mb-0 table-bordered-custom">
+                <thead class="table-header">
+                  <tr>
+                    <th>Assessment Components</th>
+                    <th>Final Project Components</th>
+                  </tr>
+                </thead>
+                <tbody class="table-content">
+                  <tr>
+                    <td>
+                      <strong class="text-dark-blue">Conceptual Understanding Tests</strong><br>
+                      <p class="text-navy">Test your grasp of core AI concepts and terminologies</p>
+                    </td>
+                    <td>
+                      <strong class="text-dark-blue">End-to-End Capstone Project</strong><br>
+                      <p class="text-navy">Deliver a complete AI solution for your portfolio</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <strong class="text-dark-blue">Hands-on Lab Tests</strong><br>
+                      <p class="text-navy">Solve coding challenges drawn from actual interview questions</p>
+                    </td>
+                    <td>
+                      <strong class="text-dark-blue">Technical Documentation</strong><br>
+                      <p class="text-navy">Produce a clear, professional report on your implementation</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <strong class="text-dark-blue">Mid-term Project</strong><br>
+                      <p class="text-navy">Build a solution that ties together multiple AI concepts</p>
+                    </td>
+                    <td>
+                      <strong class="text-dark-blue">Continuous Feedback</strong><br>
+                      <p class="text-navy">Use regular faculty guidance to refine your solution</p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Call to Action -->
+            <div class="text-center">
+              <h5 class="fw-bold text-dark-blue">With IgniteAI, You Can: Learn. Build. Deploy... Get Hired!</h5>
+              <p class="text-dark-blue">New batch starts on July 15, 2025</p>
+              <a href="#" class="btn btn-success">REQUEST A CALL-BACK</a>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <div class="accordion-item rounded-3">
+      <h2 class="accordion-header" id="headingTwo">
+        <button class="accordion-button custom-accordion collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Course Structure
+        </button>
+      </h2>
+      <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#programAccordion" aria-labelledby="headingTwo">
+        <div class="accordion-body">
+          <div class="container-fluid bg-white py-3 px-0">
+
+              <!-- Module 1 -->
+              <div class="bg-custom-content py-3 px-4 mb-3">
+                <h6 class="fw-bold">Module 1: Data Literacy, Python for Data (4 Hours)</h6>
+                <ul class="mb-0">
+                  <li>Python basics: Lists, dictionaries, and loops</li>
+                  <li>Libraries: NumPy, pandas for data manipulation</li>
+                  <li>Data-driven decision-making frameworks</li>
+                </ul>
+              </div>
+
+              <!-- Module 2 -->
+              <div class="bg-custom-content py-3 px-4 mb-3">
+                <h6 class="fw-bold">Module 2: Data Handling, Knowledge Discovery (12 Hours)</h6>
+                <ul class="mb-0">
+                  <li>SQL for data retrieval and aggregation</li>
+                  <li>Data preprocessing: Handling missing data, feature engineering</li>
+                  <li>Power BI for visual reports and dashboards</li>
+                </ul>
+              </div>
+
+              <!-- Module 3 -->
+              <div class="bg-custom-content py-3 px-4 mb-3">
+                <h6 class="fw-bold">Module 3: Machine Learning (6 Hours)</h6>
+                <ul class="mb-0">
+                  <li>Supervised learning: Regression, classification models</li>
+                  <li>Unsupervised learning: Clustering, dimensionality reduction</li>
+                  <li>Model evaluation metrics and hyperparameter tuning</li>
+                </ul>
+              </div>
+
+              <!-- Module 4 -->
+              <div class="bg-custom-content py-3 px-4 mb-3">
+                <h6 class="fw-bold">Module 4: Deep Learning (8 Hours)</h6>
+                <ul class="mb-0">
+                  <li>Neural networks: TensorFlow and PyTorch implementation</li>
+                  <li>CNNs for image data, RNNs for sequential data</li>
+                  <li>Real-world applications: Image recognition, NLP, more</li>
+                </ul>
+              </div>
+
+              <!-- Module 5 -->
+              <div class="bg-custom-content py-3 px-4 mb-3">
+                <h6 class="fw-bold">Module 5: Generative AI Applications (8 Hours)</h6>
+                <ul class="mb-0">
+                  <li>Large Language Models and their enterprise applications</li>
+                  <li>Building GenAI-driven solutions for business problems</li>
+                  <li>Best practices for prompt engineering and fine-tuning</li>
+                </ul>
+              </div>
+
+              <!-- Module 6 -->
+              <div class="bg-custom-content py-3 px-4 mb-3">
+                <h6 class="fw-bold">Module 6: Data, ML, & AI on Cloud (20 Hours)</h6>
+                <ul class="mb-0">
+                  <li>Cloud platforms: Azure, AWS, GCP integration</li>
+                  <li>Designing cloud pipelines and automating workflows</li>
+                  <li>Real-time ML services and deployments</li>
+                </ul>
+              </div>
+
+              <!-- Module 7 -->
+              <div class="bg-custom-content py-3 px-4 mb-3">
+                <h6 class="fw-bold">Module 7: Model Deployment (10 Hours)</h6>
+                <ul class="mb-0">
+                  <li>Packaging models with Flask, FastAPI, Docker</li>
+                  <li>Building interactive interfaces with Streamlit</li>
+                  <li>Monitoring and maintaining production models</li>
+                </ul>
+              </div>
+
+              <!-- Module 8 -->
+              <div class="bg-custom-content py-3 px-4 mb-4">
+                <h6 class="fw-bold">Module 8: Career Preparation & Capstone (8 Hours)</h6>
+                <ul class="mb-0">
+                  <li>Communication skills for technical interviews</li>
+                  <li>End-to-end project execution and documentation for your portfolio</li>
+                  <li>Portfolio presentation strategies for interviews</li>
+                </ul>
+              </div>
+
+              <!-- Button -->
+              <div class="text-center mt-4">
+                <a href="#" class="btn btn-danger rounded-pill px-4 py-2 fw-bold text-uppercase">
+                  Download Brochure
+                </a>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item rounded-3">
+      <h2 class="accordion-header" id="headingThree">
+        <button class="accordion-button custom-accordion collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Career Outcomes & ROI
+        </button>
+      </h2>
+      <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#programAccordion" aria-labelledby="headingThree">
+        <div class="accordion-body">
+            <div class="container py-3 px-0 text-navy">
+              <p>IgniteAI prepares you for high-demand AI roles. After the program, you can pursue:</p>
+
+              <!-- Row 1 -->
+              <div class="bg-custom-content p-3 mb-2 d-flex flex-column flex-md-row justify-content-between align-items-start">
+                <div>
+                  <h6 class="fw-bold mb-1 text-dark-blue">Machine Learning Engineer</h6>
+                  <div class="fw-semibold text-navy">Design, train, and deploy ML systems at scale</div>
+                  <div class="text-muted text-navy">Common in companies like Amazon, Microsoft, TCS, Infosys</div>
+                </div>
+                <div class="fw-semibold text-end text-nowrap text-dark-blue mt-2 mt-md-0 text-md-end">₹14–25 LPA +</div>
+              </div>
+
+              <!-- Row 2 -->
+              <div class="bg-custom-alt p-3 mb-2 d-flex flex-column flex-md-row justify-content-between align-items-start">
+                <div>
+                  <h6 class="fw-bold mb-1 text-dark-blue">AI Developer</h6>
+                  <div class="fw-semibold text-navy">Integrate AI capabilities into products and services</div>
+                  <div class="text-muted text-navy">Growing demand in startups and established tech companies</div>
+                </div>
+                <div class="fw-semibold text-end text-nowrap text-dark-blue mt-2 mt-md-0 text-md-end">₹14–18 LPA +</div>
+              </div>
+
+              <!-- Row 3 -->
+              <div class="bg-custom-content p-3 mb-2 d-flex flex-column flex-md-row justify-content-between align-items-start">
+                <div>
+                  <h6 class="fw-bold mb-1 text-dark-blue">Data Scientist</h6>
+                  <div class="fw-semibold text-navy">Build predictive models and turn data into insights</div>
+                  <div class="text-muted text-navy">High demand across finance, retail, and healthcare sectors</div>
+                </div>
+                <div class="fw-semibold text-end text-nowrap text-dark-blue mt-2 mt-md-0 text-md-end">₹14–25 LPA +</div>
+              </div>
+
+              <!-- Row 4 -->
+              <div class="bg-custom-alt p-3 mb-2 d-flex flex-column flex-md-row justify-content-between align-items-start">
+                <div>
+                  <h6 class="fw-bold mb-1 text-dark-blue">AI Application Developer</h6>
+                  <div class="fw-semibold text-navy">Create and maintain applications powered by AI</div>
+                  <div class="text-muted text-navy">Common in software product companies and IT service firms</div>
+                </div>
+                <div class="fw-semibold text-end text-nowrap text-dark-blue mt-2 mt-md-0 text-md-end">₹10–30 LPA +</div>
+              </div>
+
+              <!-- Row 5 -->
+              <div class="bg-custom-content p-3 mb-2 d-flex flex-column flex-md-row justify-content-between align-items-start">
+                <div>
+                  <h6 class="fw-bold mb-1 text-dark-blue">Cloud AI/ML Engineer</h6>
+                  <div class="fw-semibold text-navy">Build systems that deploy and scale AI models in cloud environments</div>
+                  <div class="text-muted text-navy">High demand across companies adopting cloud infrastructure</div>
+                </div>
+                <div class="fw-semibold text-end text-nowrap text-dark-blue mt-2 mt-md-0 text-md-end">₹10–30 LPA +</div>
+              </div>
+            </div>
+
+          <div class="container my-4 p-4 bg-custom-content">
+            <div class="row">
+              <!-- Image Section -->
+              <div class="col-12 col-md-3 text-center">
+                <img src="./d94b249201227b02d0e8f78edf1be2cdb5256835.jpg" alt="Shubham Maheswari" class="img-fluid rounded mb-3" />
+                <h6 class="fw-bold mb-0 text-dark-blue">Shubham Maheswari</h6>
+                <small class="text-muted text-navy">Associate Data Scientist<br />Edelweiss</small>
+              </div>
+              <!-- Text Section -->
+              <div class="col-12 col-md-9">
+                <h6 class="fw-bold text-danger mt-3 mt-md-0">A Great Journey</h6>
+                <p class="mb-0 text-navy text-justify">
+                  After my Ph.D., INSOFE almost became a second university for me. The faculty makes very tough subjects easier to learn, which is not an easy job. The curriculum does come above and beyond industry expectations. As I previously worked as a Data Analyst in the Healthcare industry, I could relate to it quite well. INSOFE faculty teaches a lot of stats, regressions, logistics, and classroom analysis. The way they taught made me articulate and communicate very well.
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- How We Help Section -->
+        <div class="container d-flex flex-column align-items-center px-3">
+        <div class="w-100 mt-3 mx-auto" style="max-width: 1140px;">
+          <div class="card h-100 p-4">
+            <h5 class="text-center fw-bold mb-4 text-dark-blue">How We Help You Get Hired</h5>
+
+            <div class="row g-3">
+              <!-- Reusable Card Component -->
+              <div class="col-12 col-md-6 col-lg-4">
+                <div class="border rounded bg-light d-flex flex-column justify-content-between p-3 h-100">
+                  <h6 class="fw-bold text-center text-navy">Portfolio Development</h6>
+                  <div class="d-flex align-items-center justify-content-center text-center flex-grow-1">
+                    <p class="mb-0 text-navy text-md-start">Build and showcase AI projects</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12 col-md-6 col-lg-4">
+                <div class="border rounded bg-light d-flex flex-column justify-content-between p-3 h-100">
+                  <h6 class="fw-bold text-center text-navy">Technical Interview Prep</h6>
+                  <div class="d-flex align-items-center justify-content-center text-center flex-grow-1">
+                    <p class="mb-0 text-navy text-md-start">Master coding challenges and system design questions commonly asked in AI role interviews</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12 col-md-6 col-lg-4">
+                <div class="border rounded bg-light d-flex flex-column justify-content-between p-3 h-100">
+                  <h6 class="fw-bold text-center text-navy">Job Readiness</h6>
+                  <div class="d-flex align-items-center justify-content-center text-center flex-grow-1">
+                    <p class="mb-0 text-navy text-md-start">Improve in-demand soft skills for interviews and get career counselling for job success</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12 col-md-6 col-lg-4">
+                <div class="border rounded bg-light d-flex flex-column justify-content-between p-3 h-100">
+                  <h6 class="fw-bold text-center text-navy">Resume Building</h6>
+                  <div class="d-flex align-items-center justify-content-center text-center flex-grow-1">
+                    <p class="mb-0 text-navy text-md-start">Tailor your resume to pass ATS filters and grab a recruiter’s attention in seconds</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12 col-md-6 col-lg-4">
+                <div class="border rounded bg-light d-flex flex-column justify-content-between p-3 h-100">
+                  <h6 class="fw-bold text-center text-navy">Industry Partnerships</h6>
+                  <div class="d-flex align-items-center justify-content-center text-center flex-grow-1">
+                    <p class="mb-0 text-navy text-md-start">Collaborate with top companies for live projects and internships</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12 col-md-6 col-lg-4">
+                <div class="border rounded bg-light d-flex flex-column justify-content-between p-3 h-100">
+                  <h6 class="fw-bold text-center text-navy">Mock Interviews</h6>
+                  <div class="d-flex align-items-center justify-content-center text-center flex-grow-1">
+                    <p class="mb-0 text-navy text-md-start">Practice with real interview questions from top companies and get instant feedback</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Table Section -->
+            <table class="table table-bordered-white text-start mt-4 w-100">
+              <thead class="table-header text-center">
+                <tr style="height: 50px;">
+                  <th class="px-2 px-sm-3" style="width: 50%;">What You Get</th>
+                  <th class="px-2 px-sm-3" style="width: 50%;">Market Rate</th>
+                </tr>
+              </thead>
+              <tbody class="table-content text-center">
+                <tr style="height: 50px;">
+                  <td class="px-2 px-sm-3" style="width: 50%;">78 Hours Live AI Training &amp; Cloud Labs</td>
+                  <td class="px-2 px-sm-3" style="width: 50%;">₹100,000 value</td>
+                </tr>
+                <tr style="height: 50px;">
+                  <td class="px-2 px-sm-3" style="width: 50%;">Project Portfolio</td>
+                  <td class="px-2 px-sm-3" style="width: 50%;">₹50,000 value</td>
+                </tr>
+                <tr style="height: 50px;">
+                  <td class="px-2 px-sm-3" style="width: 50%;">Interview Prep &amp; Placement Support</td>
+                  <td class="px-2 px-sm-3" style="width: 50%;">₹50,000 value</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="text-center mt-4 px-3">
+              <p class="fw-bold mb-1 text-dark-blue">Program Fee: ₹50,000 + 18% GST</p>
+              <p class="text-muted mb-3 text-navy">New batch starts on July 15, 2025</p>
+              <button class="btn btn-success px-4 py-2 fw-semibold text-uppercase">Request a Call-Back</button>
+            </div>
+          </div>
+        </div>
+         </div>
+    </div>
+
+    <div class="accordion-item rounded-3">
+      <h2 class="accordion-header" id="headingFour">
+        <button class="accordion-button custom-accordion collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+          Frequently Asked Questions
+        </button>
+      </h2>
+      <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#programAccordion" aria-labelledby="headingFour">
+        <div class="accordion-body">
+            <div class="container py-5">
+              <div class="mb-4">
+                <h6 class="fw-bold text-dark-blue-Q">Do I need to have programming experience to join?</h6>
+                <p class="text-dark-blue-D">Yes, some basic Python knowledge will help you succeed. The program starts with fundamentals but moves quickly to AI applications. We provide pre-program resources if you need to brush up on your skills before starting.</p>
+              </div>
+
+              <div class="mb-4">
+                <h6 class="fw-bold text-dark-blue-Q">How is this different from other online courses?</h6>
+                <p class="text-dark-blue-D">Other courses lack the hands-on mentorship and doubt-clearance sessions. Our PhD faculty work directly with you on real projects and provide personalized guidance on your code and approach. You will also get access to tools like Copilot and plenty of hands-on exercises to help you improve your coding skills and your approach towards solving real-world problems and deriving business value.</p>
+              </div>
+
+              <div class="mb-4">
+                <h6 class="fw-bold text-dark-blue-Q">Will I be able to handle the technical interviews after this program?</h6>
+                <p class="text-dark-blue-D">Absolutely. We have built the curriculum around what actually happens in technical interviews. We also conduct mock interviews, and our faculty shares techniques that help you stand out in technical rounds.</p>
+              </div>
+
+              <div class="mb-4">
+                <h6 class="fw-bold text-dark-blue-Q">How will this help me if I'm from a tier 2/3 college?</h6>
+                <p class="text-dark-blue-D">Your skills and projects matter more than your college name. Your Capstone project and hands-on experience will help you compete with candidates from any college. We focus on teaching implementation techniques that level the playing field in technical interviews.</p>
+              </div>
+
+              <div class="mb-4">
+                <h6 class="fw-bold text-dark-blue-Q">How does IgniteAI compare to other Data Science and AI certification programs in Hyderabad?</h6>
+                <p class="text-dark-blue-D">Unlike most Data Science and AI certification programs that focus primarily on theory, IgniteAI builds upon practical implementation skills with 78 hours of hands-on training. Our program is specifically designed to help you create a strong foundation in AI through real-world project experience, access to the latest tools like Copilot, cloud deployment practice on AWS/Azure/GCP, and technical interview preparation. We focus on building your AI project portfolio that showcases your ability to implement end-to-end AI solutions.</p>
+              </div>
+
+              <div class="mb-4">
+                <h6 class="fw-bold text-dark-blue-Q">Does the program cover Generative AI and LLM development skills?</h6>
+                <p class="text-dark-blue-D">Yes, our curriculum includes a dedicated 8-hour module on Generative AI Applications where you will learn to work with LLMs like those powering ChatGPT and Anthropic. You will gain hands-on experience with frameworks like LangChain and LangGraph, learn prompt engineering techniques, and develop end-to-end GenAI solutions for real business problems.</p>
+              </div>
+
+              <div class="mb-4">
+                <h6 class="fw-bold text-dark-blue-Q">What are the system requirements for the program?</h6>
+                <p class="text-dark-blue-D">You don’t need any special hardware. NexusU gives you access to cloud infrastructure to complete all practical work without technical limitations. A basic laptop with an internet connection is all you need to participate fully.</p>
+              </div>
+
+              <div class="mb-4">
+                <h6 class="fw-bold text-dark-blue-Q">How much time per week does the program require?</h6>
+                <p class="text-dark-blue-D">Plan for about 10–12 hours weekly between live sessions, practice, and project work. We have designed the program to fit alongside job or college commitments, with flexible scheduling options for different availability. While we record all sessions, live participation gives you the best learning experience through direct interaction with our faculty.</p>
+              </div>
+
+              <div class="text-center mt-5">
+                <p class="mb-2 fw-medium">New batch starts on <strong>July 15, 2025</strong></p>
+                <a href="#" class="btn btn-success px-4 py-2">REQUEST A CALL-BACK</a>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+<br/>
+<br/>
+
+
+<!-- CTA Section -->
+<section class="cta-section text-white position-relative mt-5" style="z-index: 2;">
+    <div class="container">
+        <div class="cta-box d-flex justify-content-between align-items-center">
+            <h2 class="cta-title mb-0">Let's make something beautiful together</h2>
+            <span class="cta-phone">+91 89775 05733</span>
+        </div>
+    </div>
+</section>
+
+
+<!-- Footer Section -->
+<footer class="footer-section text-white position-relative" 
+        style="background-image: url('./footer-bg.jpg'); background-size: cover; background-position: center; padding-top: 120px; z-index: 1;">
+  <div class="container py-5">
+    <div class="row gx-4 gy-4">
+      <div class="col-12 col-md-6 col-lg-4 d-flex flex-column gap-4">
+        <img src="./3315923d829f912510ad8cb0d7410194d3af0596.png" alt="NexusIQ Logo" class="img-fluid" style="max-width: 150px;">
+        <ul class="list-unstyled small d-flex flex-column gap-2">
+          <li><i class="fas fa-phone-alt me-2"></i>+91 89775 05733</li>
+          <li><i class="fas fa-envelope me-2"></i>info@nexusiqsolutions.com</li>
+          <li>
+            <i class="fas fa-map-marker-alt me-2"></i>
+            1st Floor, wellwork, Plot No. 44,<br>
+            Jayabheri Pinevalley, Gachibowli,<br>
+            Hyderabad, Telangana - 500032.
+          </li>
+        </ul>
+      </div>
+      <div class="col-6 col-md-3 col-lg-2 d-flex flex-column gap-2">
+        <ul class="list-unstyled d-flex flex-column gap-2">
+          <li><a href="#" class="footer-link text-white text-decoration-none">Privacy Policy</a></li>
+          <li><a href="#" class="footer-link text-white text-decoration-none">Terms of Use</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="bg" style="background-color: #152D6B;">
+    <div class="container py-4 d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+      <p class="mb-0 text-center text-md-start text-white">&copy; 2025 NexusIQ Solutions. All rights reserved.</p>
+      <div class="d-flex gap-2 justify-content-center justify-content-md-end">
+        <a href="#" class="text-white bg-white bg-opacity-25 rounded-circle d-flex align-items-center justify-content-center" 
+           style="width: 32px; height: 32px;">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="#" class="text-white bg-white bg-opacity-25 rounded-circle d-flex align-items-center justify-content-center" 
+           style="width: 32px; height: 32px;">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="#" class="text-white bg-white bg-opacity-25 rounded-circle d-flex align-items-center justify-content-center" 
+           style="width: 32px; height: 32px;">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-..." crossorigin="anonymous"></script>
+</body>
+</html>
